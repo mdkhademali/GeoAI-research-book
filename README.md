@@ -88,45 +88,6 @@ The executed notebook generates its own data. The cover globe uses land outlines
 | ERA5 | Copernicus Climate Change Service |
 | Global Surface Water | European Commission Joint Research Centre |
 
-## How to use the book
-
-1. Read the notebook in order; Chapters 1-3 establish the synthetic testbed and concepts used throughout.
-2. Run cells top to bottom (**Kernel > Restart and Run All**); later chapters reuse variables from earlier ones.
-3. After each major code cell, read the commentary box (*expected output, scientific interpretation, research implications*) and compare it with the **actual output** produced by the cell.
-4. Replace the synthetic scene with real data using the access patterns in Chapter 4 and the checklist in Chapter 15.
-
-## Launch in Google Colab
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mdkhademali/GeoAI-Research-Book/blob/main/GeoAI_Research_Book.ipynb)
-
-The link assumes the repository is published as `mdkhademali/GeoAI-Research-Book` on the `main` branch; adjust it if you use a different name. The first code cell installs any missing packages. Installing `rasterio` and `geopandas` in Colab can take a few minutes. Run the notebook on a CPU runtime; no GPU is required.
-
-## Installation (local)
-
-```bash
-git clone https://github.com/mdkhademali/GeoAI-Research-Book.git
-cd GeoAI-Research-Book
-python -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install numpy scipy pandas matplotlib seaborn plotly scikit-learn scikit-image statsmodels \
-            networkx shapely pyproj geopandas rasterio xarray libpysal esda shap torch jupyterlab
-jupyter lab GeoAI_Research_Book.ipynb
-```
-
-Python 3.10 or later is recommended. A full run takes roughly 6-10 minutes on a modern CPU. Figures are also written to `assets/figures/`.
-
-## Repository structure
-
-```text
-GeoAI-Research-Book/
-├── README.md
-├── GeoAI_Research_Book.ipynb      # the book (all chapters, code, equations, outputs)
-├── LICENSE
-└── assets/
-    ├── book_cover.png
-    ├── figures/                   # figures produced by the notebook
-    └── logos/
-```
-
 ## Reproducibility statement
 
 All random processes use fixed seeds (global seed 42; documented per experiment). The notebook records its software environment (Section 0.5) and a provenance record with a data hash (Section 15.5.1), tests determinism, and reports variability across random seeds (Section 15.5.2). Numerical results can still differ slightly between library versions and platforms (for example in tree-ensemble or optimiser behaviour); commentary in the notebook was written against the outputs of the executed version and quotes numbers from that run. Timings reported in Chapter 4 depend on hardware.
